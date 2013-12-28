@@ -1,12 +1,12 @@
-# log4js-node-xmpp
+# log4js-node-xmpp [![Build Status](https://travis-ci.org/likema/log4js-node-xmpp.png)](https://travis-ci.org/likema/log4js-node-xmpp)
 
 A log4js-node log appender to send logging events using XMPP protocol.
 
-# Installation
+## Installation
 
 	npm install log4js-node-xmpp
 
-# Usage
+## Usage
 
 Please use it as other log4js-node appenders. It needs `host`, `jid` and `password` at least.
 
