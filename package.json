@@ -1,0 +1,30 @@
+{
+  "name": "log4js-node-xmpp",
+  "version": "0.0.1",
+  "description": "A log4js-node log appender to send logging events using XMPP protocol.",
+  "main": "xmpp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/likema/log4js-node-xmpp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/likema/log4js-node-xmpp/issues"
+  },
+  "dependencies": {
+    "log4js": "~0.6.9"
+  },
+  "keywords": [
+    "log4js",
+    "xmpp",
+    "logging",
+    "log",
+    "node"
+  ],
+  "author": "Like Ma <likemartinma@gmail.com>",
+  "license": "Apache License 2.0",
+  "readmeFilename": "README.md",
+  "gitHead": "6e11dbac3dba29074fc8f5f677a1303c0d2fed9b"
+}

@@ -1,0 +1,20 @@
+{
+    "appenders": [
+        {
+            "type": "console"
+        },
+
+        {
+            "type": "xmpp",
+			"category": "hello",
+
+			"client": {
+				"host": "talk.google.com",
+				"jid": "<username>",
+				"password": "<password>"
+			},
+
+			"to": "<to address>"
+        }
+    ]
+}
