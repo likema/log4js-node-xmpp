@@ -1,10 +1,10 @@
 {
   "name": "log4js-node-xmpp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A log4js-node log appender to send logging events using XMPP protocol.",
   "main": "xmpp.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,10 @@
   "dependencies": {
     "log4js": "~0.6.9"
   },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0"
+  },
   "keywords": [
     "log4js",
     "xmpp",
@@ -25,6 +29,5 @@
   ],
   "author": "Like Ma <likemartinma@gmail.com>",
   "license": "Apache License 2.0",
-  "readmeFilename": "README.md",
-  "gitHead": "6e11dbac3dba29074fc8f5f677a1303c0d2fed9b"
+  "readmeFilename": "README.md"
 }

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var log4js = require('log4js'),
     logger = log4js.getLogger('root'),

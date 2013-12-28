@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var layouts = require('log4js').layouts,
     xmpp = require('node-xmpp');
