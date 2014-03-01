@@ -26,17 +26,13 @@ function xmppAppender(config, layout) {
     }
 
     client.addListener('online', function (data) {
-        var i,
-            body = '';
+        var body;
 
         console.log('XMPP client is connected as ' + data.jid.user + '@' +
                     data.jid.domain + '/' + data.jid.resource);
 
-        for (i = 0; i < loggingEvents.length; i += 1) {
-            body += layout(loggingEvents[i]) + '\n';
-        }
+        body = loggingEvents.map(layout).join('\n');
         loggingEvents = null;
-
         send(body);
     });
 
