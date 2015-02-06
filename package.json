@@ -14,7 +14,8 @@
     "url": "https://github.com/likema/log4js-node-xmpp/issues"
   },
   "dependencies": {
-    "log4js": "~0.6.12"
+    "log4js": "~0.6.12",
+    "node-xmpp": "~1.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
