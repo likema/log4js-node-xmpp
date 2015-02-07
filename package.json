@@ -1,6 +1,6 @@
 {
   "name": "log4js-node-xmpp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A log4js-node log appender to send logging events using XMPP protocol.",
   "main": "xmpp.js",
   "scripts": {
