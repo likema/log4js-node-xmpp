@@ -1,13 +1,10 @@
 'use strict';
 
-var layouts = require('log4js').layouts,
-    xmpp = require('node-xmpp');
+var xmpp = require('node-xmpp');
 
-function xmppAppender(config, layout) {
+function xmppAppender(layout, config, timezoneOffset) {
     var loggingEvents = [],
         client = new xmpp.Client(config.client);
-
-    layout = layout || layouts.messagePassThroughLayout;
 
     function send(body) {
         var stanza;
@@ -28,10 +25,13 @@ function xmppAppender(config, layout) {
     client.addListener('online', function (data) {
         var body;
 
-        console.log('XMPP client is connected as ' + data.jid.user + '@' +
-                    data.jid.domain + '/' + data.jid.resource);
+        console.log('XMPP client is connected as ' +
+                data.jid.user + '@' + data.jid.domain +
+                '/' + data.jid.resource);
 
-        body = loggingEvents.map(layout).join('\n');
+        body = loggingEvents.map(function (evt) {
+            return layout(evt, timezoneOffset);
+        }).join('\n');
         loggingEvents = null;
         send(body);
     });
@@ -40,24 +40,30 @@ function xmppAppender(config, layout) {
         console.error('XMPP client encountered error, ' + e);
     });
 
-    return function (loggingEvent) {
+    var appender = function (loggingEvent) {
         if (loggingEvents) {
             loggingEvents.push(loggingEvent);
         } else {
-            send(layout(loggingEvent));
+            send(layout(loggingEvent, timezoneOffset));
         }
     };
+
+    appender.shutdown = function (done) {
+        client.end();
+        done();
+    };
+
+    return appender;
 }
 
-function configure(config) {
-    var layout;
+function configure(config, layouts) {
+    var layout = layouts.colouredLayout;
     if (config.layout) {
         layout = layouts.layout(config.layout.type, config.layout);
     }
 
-    return xmppAppender(config, layout);
+    return xmppAppender(layout, config, config.timezoneOffset);
 }
 
-exports.appender = xmppAppender;
 exports.configure = configure;
 // vim: ts=4 sw=4 sts=4 et:
